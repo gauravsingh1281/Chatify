@@ -1,0 +1,20 @@
+{
+  "name": "chatify",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/gauravsingh1281/Chatify#readme",
+  "bugs": {
+    "url": "https://github.com/gauravsingh1281/Chatify/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravsingh1281/Chatify.git"
+  },
+  "license": "ISC",
+  "author": "Gaurav Pratap Singh",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
