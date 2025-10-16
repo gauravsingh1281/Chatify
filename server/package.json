@@ -5,8 +5,9 @@
   "license": "ISC",
   "author": "Gaurav Pratap Singh",
   "type": "module",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
