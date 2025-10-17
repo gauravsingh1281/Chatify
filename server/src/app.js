@@ -8,6 +8,7 @@ import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from './routes/message.route.js';
+import { connectDb } from "./lib/db.lib.js";
 const app = express();
 
 
@@ -46,4 +47,5 @@ if (fs.existsSync(indexFile)) {
 
 app.listen(port, () => {
     console.log(`Server started listening on port ${port}`);
+    connectDb();
 })
