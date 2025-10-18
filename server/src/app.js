@@ -1,5 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -9,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from './routes/message.route.js';
 import { connectDb } from "./lib/db.lib.js";
+import { ENV } from "./lib/env.lib.js";
 const app = express();
 
 
@@ -23,7 +22,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 // Do not define a root route here; SPA catch-all will be configured below
 
-const port = process.env.PORT || 3000;
+const port = ENV.PORT || 3000;
 // Compute project root from current file (server/src)
 const projectRoot = path.resolve(__dirname, "..", "..");
 const distDir = path.join(projectRoot, "client", "dist");
