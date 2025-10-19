@@ -1,11 +1,33 @@
 import { create } from "zustand";
+import apiInstance from "../lib/apiInstance";
+import toast from "react-hot-toast";
 export const useAuthStore = create((set) => ({
-    authUser: {
-        name: "john", _id: 133,
+    authUser: null,
+    isCheckingAuth: true,
+    isSigningUp: false,
+
+    checkAuth: async () => {
+        try {
+            const response = await apiInstance.get("/auth/check-user");
+            set({ authUser: response.data });
+        } catch (error) {
+            console.log("Error in authCheck", error);
+            set({ authUser: null });
+        } finally {
+            set({ isCheckingAuth: false });
+        }
     },
-    isLoading: false,
-    login: () => {
-        console.log("we just loggedIN");
-        set({ isLoading: true })
+    signup: async (data) => {
+        set({ isSigningUp: true });
+        try {
+            const response = await apiInstance.post("/auth/signup", data);
+            set({ authUser: response.data });
+            toast.success("User registered successfully.")
+        } catch (error) {
+            toast.error(error.response.data.message);
+        } finally {
+            set({ isSigningUp: false });
+        }
     }
+
 }));
