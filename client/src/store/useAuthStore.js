@@ -5,7 +5,7 @@ export const useAuthStore = create((set) => ({
     authUser: null,
     isCheckingAuth: true,
     isSigningUp: false,
-
+    isLoggingIn: false,
     checkAuth: async () => {
         try {
             const response = await apiInstance.get("/auth/check-user");
@@ -27,6 +27,18 @@ export const useAuthStore = create((set) => ({
             toast.error(error.response.data.message);
         } finally {
             set({ isSigningUp: false });
+        }
+    },
+    login: async (data) => {
+        set({ isLoggingIn: true });
+        try {
+            const response = await apiInstance.post("/auth/login", data);
+            set({ authUser: response.data });
+            toast.success("User loggedIn successfully.")
+        } catch (error) {
+            toast.error(error.response.data.message);
+        } finally {
+            set({ isLoggingIn: false });
         }
     }
 
