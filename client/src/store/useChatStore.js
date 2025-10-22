@@ -23,9 +23,9 @@ export const useChatStore = create((set, get) => ({
         set({ isUsersLoading: true });
         try {
             const respone = await apiInstance.get("/messages/contacts");
-            set({ allContacts: respone.data });
+            set({ allContacts: respone?.data });
         } catch (error) {
-            toast.error(error.respone.data.message);
+            toast.error(error?.respone?.data?.message);
         } finally {
             set({ isUsersLoading: false });
         }
@@ -34,9 +34,9 @@ export const useChatStore = create((set, get) => ({
         set({ isUsersLoading: true });
         try {
             const response = await apiInstance.get("/messages/chats");
-            set({ chats: response.data });
+            set({ chats: response?.data });
         } catch (error) {
-            toast.error(error.respone.data.message);
+            toast.error(error?.respone?.data?.message);
         } finally {
             Set({ isUsersLoading: false });
         }

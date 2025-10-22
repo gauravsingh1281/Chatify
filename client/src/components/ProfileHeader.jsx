@@ -29,7 +29,7 @@ const ProfileHeader = () => {
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     {/* Avatar*/}
-                    <div className="avatar avatar-online">
+                    <div className="avatar online">
                         <button className="size-14 rounded-full overflow-hidden relative group" onClick={() => fileInputRef.current.click()}>
                             <img src={selectedImg || authUser.profilePic || "/avatar.png"} alt="user-image" className="size-full object-cover" />
                             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
