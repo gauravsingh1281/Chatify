@@ -10,7 +10,7 @@ export const useAuthStore = create((set) => ({
     checkAuth: async () => {
         try {
             const response = await apiInstance.get("/auth/check-user");
-            set({ authUser: response?.data });
+            set({ authUser: response.data });
         } catch (error) {
             console.log("Error in authCheck", error);
             set({ authUser: null });
@@ -22,10 +22,10 @@ export const useAuthStore = create((set) => ({
         set({ isSigningUp: true });
         try {
             const response = await apiInstance.post("/auth/signup", data);
-            set({ authUser: response?.data });
+            set({ authUser: response.data });
             toast.success("User registered successfully.")
         } catch (error) {
-            toast.error(error?.respone?.data?.message);
+            toast.error(error.response.data.message);
         } finally {
             set({ isSigningUp: false });
         }
@@ -34,10 +34,10 @@ export const useAuthStore = create((set) => ({
         set({ isLoggingIn: true });
         try {
             const response = await apiInstance.post("/auth/login", data);
-            set({ authUser: response?.data });
+            set({ authUser: response.data });
             toast.success("User loggedIn successfully.")
         } catch (error) {
-            toast.error(error?.respone?.data?.message);
+            toast.error(error.response.data.message);
         } finally {
             set({ isLoggingIn: false });
         }
@@ -56,11 +56,11 @@ export const useAuthStore = create((set) => ({
         set({ isUpdatingProfileImage: true });
         try {
             const response = await apiInstance.put(`/auth/update-profile`, data);
-            set({ authUser: response?.data });
+            set({ authUser: response.data });
             toast.success("Profile updated successfully");
         } catch (error) {
             console.log("Error in updating profile:", error);
-            toast.error(error?.respone?.data?.message);
+            toast.error(error.response.data.message);
         } finally {
             set({ isUpdatingProfileImage: false });
         }
