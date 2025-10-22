@@ -10,7 +10,7 @@ export const useChatStore = create((set, get) => ({
     activeTab: "chats",
     selectedUser: null,
     isUsersLoading: false,
-    isMessageLoading: false,
+    isMessagesLoading: false,
     isSoundEnabled: localStorage.getItem("isSoundEnabled") === true,
 
     toggleSound: () => {
@@ -38,7 +38,19 @@ export const useChatStore = create((set, get) => ({
         } catch (error) {
             toast.error(error.respone.data.message);
         } finally {
-            Set({ isUsersLoading: false });
+            set({ isUsersLoading: false });
         }
+    },
+    getMessagesByUserId: async (userId) => {
+        set({ isMessagesLoading: true });
+        try {
+            const response = await apiInstance.get(`/messages/${userId}`);
+            set({ messages: response.data });
+        } catch (error) {
+            toast.error(error.respone?.data?.message || "Something went wrong");
+        } finally {
+            set({ isMessagesLoading: false });
+        }
+
     }
 }));
