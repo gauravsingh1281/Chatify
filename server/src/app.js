@@ -8,7 +8,8 @@ import authRoutes from "./routes/auth.route.js";
 import messageRoutes from './routes/message.route.js';
 import { connectDb } from "./lib/db.lib.js";
 import { ENV } from "./lib/env.lib.js";
-const app = express();
+import { app, server } from "./lib/socket.js";
+
 
 
 app.use(cookieParser());
@@ -48,7 +49,7 @@ if (fs.existsSync(indexFile)) {
     });
 }
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server started listening on port ${port}`);
     connectDb();
 })

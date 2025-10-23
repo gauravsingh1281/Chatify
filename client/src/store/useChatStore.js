@@ -26,7 +26,7 @@ export const useChatStore = create((set, get) => ({
             const respone = await apiInstance.get("/messages/contacts");
             set({ allContacts: respone.data });
         } catch (error) {
-            toast.error(error.respone?.data?.message || "Something went wrong");
+            toast.error(error.response?.data?.message || "Something went wrong");
         } finally {
             set({ isUsersLoading: false });
         }
@@ -37,7 +37,7 @@ export const useChatStore = create((set, get) => ({
             const response = await apiInstance.get("/messages/chats");
             set({ chats: response.data });
         } catch (error) {
-            toast.error(error.respone?.data?.message || "Something went wrong");
+            toast.error(error.response?.data?.message || "Something went wrong");
         } finally {
             set({ isUsersLoading: false });
         }
@@ -48,7 +48,7 @@ export const useChatStore = create((set, get) => ({
             const response = await apiInstance.get(`/messages/${userId}`);
             set({ messages: response.data });
         } catch (error) {
-            toast.error(error.respone?.data?.message || "Something went wrong");
+            toast.error(error.response?.data?.message || "Something went wrong");
         } finally {
             set({ isMessagesLoading: false });
         }
