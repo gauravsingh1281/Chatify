@@ -16,8 +16,14 @@ const io = new Server(server, {
 
 //apply auth middleware to socket connection
 io.use(socketAuthMiddleware);
+
 // online user
 const userSocketMap = {};
+
+export const getReceiverSocketId = (userId) => {
+    return userSocketMap[userId];
+}
+
 io.on("connection", (socket) => {
     console.log("A User Connected", socket.user.fullName);
     const userId = socket.userId;
