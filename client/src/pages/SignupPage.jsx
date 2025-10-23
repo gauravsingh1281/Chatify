@@ -3,20 +3,28 @@ import { useAuthStore } from "../store/useAuthStore";
 import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 import { LockIcon, MailIcon, MessageCircleIcon, UserIcon } from "lucide-react";
 import { LoaderIcon } from "react-hot-toast";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const SignupPage = () => {
     const [formData, setFormData] = useState({ fullName: "", email: "", password: "" });
     const { signup, isSigningUp } = useAuthStore();
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        signup(formData);
-        setFormData({
-            fullName: "",
-            email: "",
-            password: "",
-        })
+        try {
+            const success = await signup(formData);
+            if (success) {
+                setFormData({
+                    fullName: "",
+                    email: "",
+                    password: "",
+                });
+                navigate("/");
+            };
+        } catch (error) {
+            console.log("Signup error:", error);
+        };
     };
 
     return (

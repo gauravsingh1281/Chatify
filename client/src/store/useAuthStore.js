@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 
 
 const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
+
 export const useAuthStore = create((set, get) => ({
     authUser: null,
     isCheckingAuth: true,
@@ -32,9 +33,11 @@ export const useAuthStore = create((set, get) => ({
             set({ authUser: response.data });
             toast.success("User registered successfully.");
             get().connectSocket();
+            return true;
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong");
             set({ isSigningUp: false });
+            throw error;
         }
     },
     login: async (data) => {
@@ -44,8 +47,10 @@ export const useAuthStore = create((set, get) => ({
             set({ authUser: response.data });
             toast.success("User loggedIn successfully.");
             get().connectSocket();
+            return true;
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong");
+            throw error;
         } finally {
             set({ isLoggingIn: false });
         }
