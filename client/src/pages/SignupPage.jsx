@@ -28,18 +28,20 @@ const SignupPage = () => {
     };
 
     return (
-        <div className="min-h-screen w-full flex items-center justify-center p-2 sm:p-4 bg-slate-900">
+        <div className="min-h-screen w-full flex items-center justify-center p-2 sm:p-4">
             <div className="relative w-full max-w-6xl min-h-[600px] sm:min-h-[650px] lg:h-[800px]">
                 <BorderAnimatedContainer>
-                    <div className="w-full flex flex-col lg:flex-row min-h-full">
+                    <div className="w-full flex flex-col lg:flex-row min-h-full bg-black/20 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
                         {/* FORM COLUMN - LEFT SIDE */}
-                        <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 flex items-center justify-center lg:border-r border-slate-600/30">
+                        <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 flex items-center justify-center lg:border-r border-white/10">
                             <div className="w-full max-w-sm sm:max-w-md">
                                 {/* HEADING TEXT */}
                                 <div className="text-center mb-6 sm:mb-8">
-                                    <MessageCircleIcon className="w-10 h-10 sm:w-12 sm:h-12 mx-auto text-slate-400 mb-3 sm:mb-4" />
-                                    <h2 className="text-xl sm:text-2xl font-bold text-slate-200 mb-2">Create Account</h2>
-                                    <p className="text-sm sm:text-base text-slate-400">Sign up for a new account</p>
+                                    <div className="w-16 h-16 sm:w-18 sm:h-18 mx-auto mb-4 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-violet-500/20">
+                                        <MessageCircleIcon className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
+                                    </div>
+                                    <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-2">Create Account</h2>
+                                    <p className="text-sm sm:text-base text-white/70">Join our community today</p>
                                 </div>
 
                                 {/* FORM */}
@@ -111,20 +113,23 @@ const SignupPage = () => {
                         </div>
 
                         {/* FORM ILLUSTRATION - RIGHT SIDE */}
-                        <div className="hidden lg:w-1/2 lg:flex items-center justify-center p-4 sm:p-6 bg-gradient-to-bl from-slate-800/20 to-transparent">
-                            <div>
-                                <img
-                                    src="/signup.png"
-                                    alt="People using mobile devices"
-                                    className="w-full h-auto object-contain"
-                                />
-                                <div className="mt-4 sm:mt-6 text-center">
-                                    <h3 className="text-lg sm:text-xl font-medium text-cyan-400">Start Your Journey Today</h3>
+                        <div className="hidden lg:w-1/2 lg:flex items-center justify-center p-4 sm:p-6 bg-gradient-to-bl from-violet-600/10 via-purple-600/5 to-transparent relative">
+                            <div className="relative z-10">
+                                <div className="relative">
+                                    <img
+                                        src="/signup.png"
+                                        alt="People using mobile devices"
+                                        className="w-full h-auto object-contain drop-shadow-2xl"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-violet-600/20 to-transparent rounded-2xl"></div>
+                                </div>
+                                <div className="mt-6 sm:mt-8 text-center">
+                                    <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-violet-300 to-purple-300 bg-clip-text text-transparent">Start Your Journey Today</h3>
 
-                                    <div className="mt-3 sm:mt-4 flex flex-wrap justify-center gap-2 sm:gap-4">
-                                        <span className="auth-badge text-xs sm:text-sm">Free</span>
-                                        <span className="auth-badge text-xs sm:text-sm">Easy Setup</span>
-                                        <span className="auth-badge text-xs sm:text-sm">Private</span>
+                                    <div className="mt-4 sm:mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
+                                        <span className="auth-badge text-xs sm:text-sm">✨ Free Forever</span>
+                                        <span className="auth-badge text-xs sm:text-sm">⚡ Instant Setup</span>
+                                        <span className="auth-badge text-xs sm:text-sm">🔒 End-to-End Encrypted</span>
                                     </div>
                                 </div>
                             </div>
