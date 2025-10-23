@@ -1,4 +1,4 @@
-import { MessageCircleIcon } from "lucide-react"
+import { MessageCircleIcon, HandIcon, HeartHandshakeIcon, CalendarIcon } from "lucide-react"
 
 const NoChatHistoryPLaceholder = ({ name }) => {
     return (
@@ -16,14 +16,17 @@ const NoChatHistoryPLaceholder = ({ name }) => {
                 <div className="h-px w-32 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent mx-auto"></div>
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
-                <button className="px-4 py-2 text-xs font-medium text-cyan-400 bg-cyan-500/10 rounded-full hover:bg-cyan-500/20 transition-colors">
-                    👋 Say Hello
+                <button className="px-4 py-2 text-xs font-medium text-cyan-400 bg-cyan-500/10 rounded-full hover:bg-cyan-500/20 transition-colors flex items-center gap-2">
+                    <HandIcon className="w-3 h-3" />
+                    Say Hello
                 </button>
-                <button className="px-4 py-2 text-xs font-medium text-cyan-400 bg-cyan-500/10 rounded-full hover:bg-cyan-500/20 transition-colors">
-                    🤝 How are you?
+                <button className="px-4 py-2 text-xs font-medium text-cyan-400 bg-cyan-500/10 rounded-full hover:bg-cyan-500/20 transition-colors flex items-center gap-2">
+                    <HeartHandshakeIcon className="w-3 h-3" />
+                    How are you?
                 </button>
-                <button className="px-4 py-2 text-xs font-medium text-cyan-400 bg-cyan-500/10 rounded-full hover:bg-cyan-500/20 transition-colors">
-                    📅 Meet up soon?
+                <button className="px-4 py-2 text-xs font-medium text-cyan-400 bg-cyan-500/10 rounded-full hover:bg-cyan-500/20 transition-colors flex items-center gap-2">
+                    <CalendarIcon className="w-3 h-3" />
+                    Meet up soon?
                 </button>
             </div>
         </div>
